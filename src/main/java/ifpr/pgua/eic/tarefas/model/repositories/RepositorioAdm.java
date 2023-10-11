@@ -42,15 +42,15 @@ public class RepositorioAdm {
         if (cpf.length() != 11) {
            return Resultado.erro("CPF inválido - O CPF deve conter 11 dígitos");
         }
-        for (int i =0;i<11;i++) {
+        for (int i = 0;i<11;i++) {
             char x = cpf.charAt(i);
     
             // Verifica se o caractere é numerico
-            if (x < 48|| x>57) {
+            if (x < 48|| x >57) {
                 return Resultado.erro("CPF inválido - Caracteres não numéricos encontrados");
             }
         }
-    
+     
 
          usuarioAdm = new UsuarioAdm(nome, email, nomeLogin, senha, cpf );
 

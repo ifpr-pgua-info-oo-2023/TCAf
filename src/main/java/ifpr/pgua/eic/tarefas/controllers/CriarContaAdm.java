@@ -3,9 +3,7 @@ package ifpr.pgua.eic.tarefas.controllers;
 import com.github.hugoperlin.results.Resultado;
 
 import ifpr.pgua.eic.tarefas.App;
-import ifpr.pgua.eic.tarefas.model.entities.UsuarioAdm;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioAdm;
-import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,10 +13,10 @@ import javafx.scene.control.TextField;
 public class CriarContaAdm {
 
     @FXML
-    private TextField tfEmail;
+    private TextField tfNome;
 
     @FXML
-    private TextField tfNome;
+    private TextField tfEmail;
 
     @FXML
     private TextField tfNomeUsuario;

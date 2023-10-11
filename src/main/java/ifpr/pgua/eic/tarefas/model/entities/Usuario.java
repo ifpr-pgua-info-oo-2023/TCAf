@@ -10,17 +10,19 @@ public class Usuario {
     private String senha;
     private Date dataRegistro;
     
-    public Usuario(String nome, String email, String nomeLogin, String senha) {
+    public Usuario(String nome, String nomeLogin,  String email,String senha) {
         this.nome = nome;
-        this.email = email;
+        
         this.nomeLogin = nomeLogin;
+        this.email = email;
         this.senha = senha;
     }
-    public Usuario(int id, String nome, String email, String nomeLogin, String senha, Date dataRegistro) {
+    public Usuario(int id, String nome, String nomeLogin, String email, String senha, Date dataRegistro) {
         this.id = id;
         this.nome = nome;
-        this.email = email;
+      
         this.nomeLogin = nomeLogin;
+        this.email = email;
         this.senha = senha;
         this.dataRegistro = dataRegistro;
     }

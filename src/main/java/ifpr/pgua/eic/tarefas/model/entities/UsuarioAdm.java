@@ -12,20 +12,22 @@ public class UsuarioAdm {
  
     
   
-    public UsuarioAdm(String cpf,String nome, String email, String nomeLogin, String senha) {
-        this.cpf = cpf;
+    public UsuarioAdm(String nome, String email, String nomeLogin, String senha, String cpf) {
+        
         this.nome = nome;
         this.email = email;
         this.nomeLogin = nomeLogin;
+        this.cpf = cpf;
         this.senha = senha;
         
     }
-    public UsuarioAdm(String cpf, String nome, String email, String nomeLogin, String senha, Date dataRegistro) {
-        this.cpf = cpf;
+    public UsuarioAdm( String nome, String email, String nomeLogin, String senha, String cpf, Date dataRegistro) {
+       
         this.nome = nome;
         this.email = email;
         this.nomeLogin = nomeLogin;
         this.senha = senha;
+        this.cpf = cpf;
         this.dataRegistro = dataRegistro;
     }
     public String getCpf() {

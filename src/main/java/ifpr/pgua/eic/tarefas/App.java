@@ -9,7 +9,6 @@ import ifpr.pgua.eic.tarefas.model.daos.JDBCUsuarioAdmDAO;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCUsuarioDAO;
 import ifpr.pgua.eic.tarefas.model.daos.UsuarioAdmDAO;
 import ifpr.pgua.eic.tarefas.model.daos.UsuarioDAO;
-import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioAdm;
 import ifpr.pgua.eic.tarefas.model.repositories.RepositorioUsuario;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;

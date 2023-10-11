@@ -12,7 +12,7 @@ import ifpr.pgua.eic.tarefas.model.entities.UsuarioAdm;
 
 
 public class JDBCUsuarioAdmDAO implements UsuarioAdmDAO {
-    private static final String INSERTPESSOA ="INSERT INTO  TCA_pessoa (nome, nome_login, email, senha) VALUES (?,?,?,?)";
+    private static final String INSERTPESSOA ="INSERT INTO  TCA_pessoa (nome, email,  nome_login, senha) VALUES (?,?,?,?)";
     private static final String INSERTADM = "INSERT INTO TCA_adm(cpf_adm, id_pessoa_fk) VALUES (?,?)";
 
     private FabricaConexoes fabrica;
@@ -28,20 +28,22 @@ public class JDBCUsuarioAdmDAO implements UsuarioAdmDAO {
           con.setAutoCommit(false);
 
             PreparedStatement pstm = con.prepareStatement(INSERTPESSOA, Statement.RETURN_GENERATED_KEYS);
-            PreparedStatement pstk = con.prepareStatement(INSERTADM);
+           
             pstm.setString(1, usuarioAdm.getNome());
             pstm.setString(2, usuarioAdm.getEmail());
             pstm.setString(3, usuarioAdm.getNomeLogin());
             pstm.setString(4, usuarioAdm.getSenha());
             
             int ret = pstm.executeUpdate();
+            PreparedStatement pstk = con.prepareStatement(INSERTADM);
 
              if(ret == 1){
                 ResultSet rs = pstm.getGeneratedKeys();
                 rs.next();
                 int id = rs.getInt(1);
-                pstk.setInt(2,id);
                 pstk.setString(1,usuarioAdm.getCpf());
+                pstk.setInt(2,id);
+                
                 int retPessoa = pstk.executeUpdate();
 
                 if (retPessoa == 1) {
