@@ -4,6 +4,7 @@ package ifpr.pgua.eic.tarefas;
 import ifpr.pgua.eic.tarefas.controllers.CriarConta;
 import ifpr.pgua.eic.tarefas.controllers.CriarContaAdm;
 import ifpr.pgua.eic.tarefas.controllers.Login;
+import ifpr.pgua.eic.tarefas.controllers.Principal;
 import ifpr.pgua.eic.tarefas.model.daos.FabricaConexoes;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCUsuarioAdmDAO;
 import ifpr.pgua.eic.tarefas.model.daos.JDBCUsuarioDAO;
@@ -46,7 +47,7 @@ public class App extends BaseAppNavigator {
 
     @Override
     public void registrarTelas() {
-          registraTela("LOGIN", new ScreenRegistryFXML(App.class, "login.fxml", o->new Login()));
+          registraTela("LOGIN", new ScreenRegistryFXML(App.class, "login.fxml", o->new Login(repositorioUsuario,repositorioAdm)));
 
       
     
@@ -60,6 +61,11 @@ public class App extends BaseAppNavigator {
     new ScreenRegistryFXML(App.class, 
         "criar_conta_adm.fxml", 
         o->new CriarContaAdm(repositorioAdm)
+    ));
+    registraTela("TELAPRINCIPAL",
+    new ScreenRegistryFXML(App.class, 
+        "principal.fxml", 
+        o->new Principal()
     ));
 
 }}

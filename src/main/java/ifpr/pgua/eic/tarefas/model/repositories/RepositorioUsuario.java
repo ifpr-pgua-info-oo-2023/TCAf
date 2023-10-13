@@ -35,6 +35,9 @@ public class RepositorioUsuario {
 
         return dao.criar(usuario);
     }
+     public Resultado realizarLogin(String nomeUsuario, String senha){
+        return dao.realizarLogin(nomeUsuario, senha);
+     }
 
 
     public Resultado listarUsuario(){

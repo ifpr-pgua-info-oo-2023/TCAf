@@ -13,6 +13,12 @@ import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 public class JDBCUsuarioDAO implements UsuarioDAO {
     private static final String INSERTPESSOA = "INSERT INTO  TCA_pessoa (nome, nome_login, email, senha) VALUES (?,?,?,?)";
     private static final String INSERTUSUARIO = "INSERT INTO TCA_usuario(id_pessoa_fk) VALUES (?)";
+    private static final String SELECTVALIDALOGIN = "SELECT U.id_usuario_pk " +
+    "FROM TCA_usuario U " +
+    "INNER JOIN TCA_pessoa P ON U.id_pessoa_fk = P.id_pessoa " +
+    "WHERE P.nome_login = ? AND P.senha = ?";
+
+
    
     private FabricaConexoes fabrica;
 
@@ -81,6 +87,28 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
     public Resultado delete(int id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Resultado realizarLogin(String nomeUsuario, String senha) {
+    
+        try (Connection con = fabrica.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(SELECTVALIDALOGIN)) {
+    
+            pstmt.setString(1, nomeUsuario);
+            pstmt.setString(2, senha);
+    
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                if (resultSet.next()) {
+                 
+                    return Resultado.sucesso(null,null);
+                }
+                return Resultado.erro(null);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Resultado.erro("Erro ao realizar o login.");
+        }
     }
 
    

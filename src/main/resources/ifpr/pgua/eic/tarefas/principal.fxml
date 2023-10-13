@@ -1,36 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx" 
-      xmlns:fx="http://javafx.com/fxml" 
-      prefHeight="480" prefWidth="640"
-      fx:controller="ifpr.pgua.eic.tarefas.controllers.Principal"
-      >
-
-    <padding>
-        <Insets topRightBottomLeft="20"/>
-    </padding>
-
-    <left>
-        <VBox spacing="5.0" alignment="TOP_CENTER">
-            <padding>
-                <Insets topRightBottomLeft="20"/>
-            </padding>
-            <Button text="Cadastrar Categoria" onAction="#cadastrarCategoria"  prefWidth="200"/>
-            <Button text="Listar Categoria" onAction="#listarCategoria"  prefWidth="200"/>
-            <Button text="Cadastrar Tarefa" onAction="#cadastrarTarefa"  prefWidth="200"/>
-            <Button text="Listar Tarefa" onAction="#listarTarefa"  prefWidth="200"/>
-          
-
-        </VBox>
-    </left>
-
-</BorderPane>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="117.0">
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbNome" text="Label" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

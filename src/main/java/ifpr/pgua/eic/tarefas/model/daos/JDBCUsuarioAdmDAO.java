@@ -14,6 +14,10 @@ import ifpr.pgua.eic.tarefas.model.entities.UsuarioAdm;
 public class JDBCUsuarioAdmDAO implements UsuarioAdmDAO {
     private static final String INSERTPESSOA ="INSERT INTO  TCA_pessoa (nome, email,  nome_login, senha) VALUES (?,?,?,?)";
     private static final String INSERTADM = "INSERT INTO TCA_adm(cpf_adm, id_pessoa_fk) VALUES (?,?)";
+    private static final String SELECTVALIDALOGIN = "SELECT U.cpf_adm "+
+    "FROM TCA_adm U "+
+    "INNER JOIN TCA_pessoa P ON U.id_pessoa_fk = P.id_pessoa "+
+    "WHERE P.nome_login = ? AND P.senha = ?";
 
     private FabricaConexoes fabrica;
 
@@ -83,6 +87,29 @@ public class JDBCUsuarioAdmDAO implements UsuarioAdmDAO {
     public Resultado delete(int id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Resultado realizarLogin(String nomeUsuario, String senha) {
+
+        try (Connection con = fabrica.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(SELECTVALIDALOGIN)) {
+
+            pstmt.setString(1, nomeUsuario);
+            pstmt.setString(2, senha);
+
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                if (resultSet.next()) {
+                 return Resultado.sucesso(null,null);
+                } else {
+            
+            return Resultado.erro("Credenciais inválidas. Tente novamente.");
+        }
+       }
+   } catch (SQLException e) {
+       e.printStackTrace();
+       return Resultado.erro("Erro ao realizar o login.");
+   }
     }
 
    

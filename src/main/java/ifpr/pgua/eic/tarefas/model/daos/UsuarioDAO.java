@@ -11,7 +11,7 @@ public interface UsuarioDAO {
  
     Resultado listar();
     Resultado getById(int id);
-
+    Resultado realizarLogin(String nomeUsuario, String senha);
     Resultado atualizar(int id, Usuario novo);
     Resultado delete(int id);
 }

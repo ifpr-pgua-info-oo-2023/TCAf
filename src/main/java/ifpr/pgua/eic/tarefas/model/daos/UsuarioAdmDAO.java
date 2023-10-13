@@ -10,7 +10,7 @@ public interface UsuarioAdmDAO {
  
     Resultado listar();
     Resultado getById(int id);
-
+    Resultado realizarLogin(String nomeUsuario,String senha);
     Resultado atualizar(int id, UsuarioAdm novo);
     Resultado delete(int id);
 }
