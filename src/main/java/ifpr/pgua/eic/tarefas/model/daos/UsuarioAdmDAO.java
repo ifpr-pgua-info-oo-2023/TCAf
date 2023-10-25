@@ -9,6 +9,7 @@ public interface UsuarioAdmDAO {
 
  
     Resultado listar();
+    Resultado perfil();
     Resultado getById(int id);
     Resultado realizarLogin(String nomeUsuario,String senha);
     Resultado atualizar(int id, UsuarioAdm novo);

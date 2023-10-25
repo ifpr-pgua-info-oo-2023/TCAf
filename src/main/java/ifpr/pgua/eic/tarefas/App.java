@@ -77,7 +77,7 @@ public class App extends BaseAppNavigator {
     registraTela("TELAPRINCIPALADM",
     new ScreenRegistryFXML(App.class, 
         "principal_adm.fxml", 
-        o->new PrincipalAdm()
+        o->new PrincipalAdm(repositorioAdm)
     ));
      registraTela("LISTARADM",
     new ScreenRegistryFXML(App.class, 

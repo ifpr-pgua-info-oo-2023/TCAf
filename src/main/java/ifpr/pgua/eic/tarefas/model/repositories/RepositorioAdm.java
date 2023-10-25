@@ -65,4 +65,8 @@ public class RepositorioAdm {
     public Resultado listarUsuarioAdm(){
         return dao.listar();
     }
+
+    public Resultado mostrarPerfil(){
+        return dao.perfil();
+    }
 }

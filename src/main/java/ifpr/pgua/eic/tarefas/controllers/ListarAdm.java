@@ -68,6 +68,7 @@ public class ListarAdm implements Initializable{
             List lista = (List)resultado.comoSucesso().getObj();
             lstAdm.getItems().addAll(lista);
         }
+        
     
     }
 
