@@ -27,10 +27,12 @@ public class Login {
     private RepositorioAdm repositorioAdm;
 
     
+    
     public Login(RepositorioUsuario repositorio, RepositorioAdm repositorioAdm) {
         this.repositorio = repositorio;
         this.repositorioAdm = repositorioAdm;
     }
+    
 
     @FXML
     void cadastrarConta(ActionEvent event) {
@@ -47,17 +49,19 @@ public class Login {
         String nomeUsuario = tfNome.getText();
         String senha = tfSenha.getText();
 
-        Resultado resultado = repositorio.realizarLogin(nomeUsuario, senha);
+       Resultado resultado = repositorio.realizarLogin(nomeUsuario, senha);
        Resultado resultadoADM = repositorioAdm.realizarLogin(nomeUsuario, senha);
 
         
         
        if(resultado.foiSucesso()){
-           App.pushScreen("TELAPRINCIPAL");
+           App.pushScreen("TELAPRINCIPALADM");
        }else{
             
             if(resultadoADM.foiSucesso()){
-                App.pushScreen("TELAPRINCIPAL");
+                
+                App.pushScreen("TELAPRINCIPALADM");
+                
             }else{
                 Alert alert;
                 alert = new Alert(AlertType.INFORMATION, resultadoADM.getMsg());

@@ -9,14 +9,16 @@ public class Usuario {
     private String nomeLogin;
     private String senha;
     private Date dataRegistro;
+
+  
     
     public Usuario(String nome, String nomeLogin,  String email,String senha) {
         this.nome = nome;
-        
         this.nomeLogin = nomeLogin;
         this.email = email;
         this.senha = senha;
     }
+    
     public Usuario(int id, String nome, String nomeLogin, String email, String senha, Date dataRegistro) {
         this.id = id;
         this.nome = nome;

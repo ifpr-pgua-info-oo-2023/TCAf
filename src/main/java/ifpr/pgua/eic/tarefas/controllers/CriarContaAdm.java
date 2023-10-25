@@ -28,6 +28,9 @@ public class CriarContaAdm {
     private TextField tfCpf;
 
     @FXML
+    private TextField tfTelefone;
+
+    @FXML
     private TextField tfSenhaAdm;
 
     private RepositorioAdm repositorio;
@@ -47,10 +50,11 @@ public class CriarContaAdm {
         String nomeUsuario = tfNomeUsuario.getText();
         String senha = tfSenha.getText();
         String cpf = tfCpf.getText();
+        String telefone = tfTelefone.getText();
         String senhaAdm = tfSenhaAdm.getText();
         
         
-        Resultado resultado = repositorio.criarContaAdm(nome, email, nomeUsuario, senha, cpf, senhaAdm);
+        Resultado resultado = repositorio.criarContaAdm(nome, email, nomeUsuario, senha, cpf, telefone, senhaAdm);
              
         Alert alert;
         

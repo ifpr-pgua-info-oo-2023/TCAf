@@ -17,7 +17,7 @@ public class RepositorioAdm {
         this.dao = dao;
     }
 
-    public Resultado criarContaAdm(String nome, String email, String nomeLogin, String senha, String cpf, String senhaAdm){
+    public Resultado criarContaAdm(String nome, String email, String nomeLogin, String senha, String cpf, String telefone, String senhaAdm){
 
         if(nome.isEmpty() || nome.isBlank()){
             return Resultado.erro("Nome inválido!");
@@ -52,7 +52,7 @@ public class RepositorioAdm {
         }
      
 
-         usuarioAdm = new UsuarioAdm(nome, email, nomeLogin, senha, cpf );
+         usuarioAdm = new UsuarioAdm(nome, email, nomeLogin, senha, cpf,telefone );
 
         return dao.criar(usuarioAdm);
     }

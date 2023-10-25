@@ -11,12 +11,10 @@ import ifpr.pgua.eic.tarefas.model.entities.Usuario;
 
 
 public class JDBCUsuarioDAO implements UsuarioDAO {
-    private static final String INSERTPESSOA = "INSERT INTO  TCA_pessoa (nome, nome_login, email, senha) VALUES (?,?,?,?)";
-    private static final String INSERTUSUARIO = "INSERT INTO TCA_usuario(id_pessoa_fk) VALUES (?)";
-    private static final String SELECTVALIDALOGIN = "SELECT U.id_usuario_pk " +
-    "FROM TCA_usuario U " +
-    "INNER JOIN TCA_pessoa P ON U.id_pessoa_fk = P.id_pessoa " +
-    "WHERE P.nome_login = ? AND P.senha = ?";
+    private static final String INSERTPESSOA = "INSERT INTO  TCA_usuario (nome_usuario, nome_login_usuario, email_usuario, senha_usuario) VALUES (?,?,?,?)";
+    private static final String SELECTVALIDALOGIN = "SELECT " +
+    "*FROM TCA_usuario U " +
+    "WHERE U.nome_login_usuario = ? AND U.senha_usuario = ?";
 
 
    
@@ -31,10 +29,9 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
     public Resultado criar(Usuario usuario) {
         
           try(Connection con = fabrica.getConnection();) {
-            con.setAutoCommit(false);
 
             PreparedStatement pstm = con.prepareStatement(INSERTPESSOA, Statement.RETURN_GENERATED_KEYS);
-            PreparedStatement pstk = con.prepareStatement(INSERTUSUARIO);
+         
                 
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getEmail());
@@ -46,14 +43,7 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
            if(ret == 1){
                 ResultSet rs = pstm.getGeneratedKeys();
                 rs.next();
-                int id = rs.getInt(1);
-                pstk.setInt(1,id);
-                int retPessoa = pstk.executeUpdate();
-
-                if (retPessoa == 1) {
-                    con.commit();
-                }
-
+               
                 System.out.println(con.getMetaData().getDatabaseProductName());
 
                 System.out.println(usuario);
@@ -100,6 +90,9 @@ public class JDBCUsuarioDAO implements UsuarioDAO {
     
             try (ResultSet resultSet = pstmt.executeQuery()) {
                 if (resultSet.next()) {
+
+             
+               
                  
                     return Resultado.sucesso(null,null);
                 }

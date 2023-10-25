@@ -8,69 +8,74 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.CriarContaAdm">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifpr.pgua.eic.tarefas.controllers.CriarContaAdm">
    <children>
       <Pane prefHeight="400.0" prefWidth="264.0" />
       <VBox prefHeight="400.0" prefWidth="382.0">
          <children>
-            <Label text="Criar Conta">
-               <VBox.margin>
-                  <Insets left="30.0" top="7.0" />
-               </VBox.margin>
-            </Label>
             <Label text="Nome Completo">
                <VBox.margin>
-                  <Insets left="30.0" top="7.0" />
+                  <Insets left="30.0" top="5.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tfNome">
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="7.0" />
+                  <Insets left="30.0" right="30.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <Label text="Email">
                <VBox.margin>
-                  <Insets left="30.0" top="7.0" />
+                  <Insets left="30.0" top="5.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tfEmail">
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="7.0" />
+                  <Insets left="30.0" right="30.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <Label text="Nome Usuario">
                <VBox.margin>
-                  <Insets left="30.0" top="7.0" />
+                  <Insets left="30.0" top="5.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tfNomeUsuario">
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="7.0" />
+                  <Insets left="30.0" right="30.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <Label text="Senha">
                <VBox.margin>
-                  <Insets left="30.0" top="7.0" />
+                  <Insets left="30.0" top="5.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tfSenha">
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="7.0" />
+                  <Insets left="30.0" right="30.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <Label text="CPF">
                <VBox.margin>
-                  <Insets left="30.0" top="7.0" />
+                  <Insets left="30.0" top="5.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="tfCpf">
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="7.0" />
+                  <Insets left="30.0" right="30.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Telefone">
+               <VBox.margin>
+                  <Insets left="30.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="tfTelefone">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="5.0" />
                </VBox.margin>
             </TextField>
             <Label text="Senha Fornecida Pelo ADM">
                <VBox.margin>
-                  <Insets top="7.0" />
+                  <Insets top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets left="30.0" />
@@ -78,7 +83,7 @@
             </Label>
             <TextField fx:id="tfSenhaAdm">
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="7.0" />
+                  <Insets left="30.0" right="30.0" top="5.0" />
                </VBox.margin>
             </TextField>
             
